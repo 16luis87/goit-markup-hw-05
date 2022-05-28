@@ -55,6 +55,7 @@ nav {
     align-items: center;
     justify-content: space-between;
 }
+/* intentando que el icono y e el texto apliquen juntos las funciones hover*/
 
 .mail{
     width: 160px;
@@ -64,6 +65,10 @@ nav {
     cursor: pointer;
 }
 
+.mail:hover {
+    color: var(--colortextoresaltado);
+}
+
 .phone{
     width: 135px;
     display: flex;
@@ -71,51 +76,29 @@ nav {
     align-items: center;
 }
 
-.linkHeader1 {
+.linkHeader {
     text-decoration: none;
     color: var(--colortextotitulos);
     font-weight: var(--grosorfuenteb);
     font-size: var(--tamañofuentea);
     line-height: var(--interlineadoa);
+    display: flex;
+    flex-direction: column;
 }
 
-/*pendiente la linea decorativa*/
-.linkHeader1::before {
-    content: '';
+.linkHeader:hover {
+    color: var(--colortextoresaltado);
 }
 
-.linkHeader2 {
-    text-decoration: none;
-    color: var(--colortextotitulos);
-    font-weight: var(--grosorfuenteb);
-    font-size: var(--tamañofuentea);
-    line-height: var(--interlineadoa);
+/*en la navegación pricipal me quedan dudas respecto al efecto de subrayado*/
+.linkHeader:hover:after {
+    content: " ";
+    width: 100%;
+    height: 4px;
+    background-color: var(--colortextoresaltado);
 }
 
-.linkHeader3 {
-    text-decoration: none;
-    color: var(--colortextotitulos);
-    font-weight: var(--grosorfuenteb);
-    font-size: var(--tamañofuentea);
-    line-height: var(--interlineadoa);
-}
-
-.linkHeader4 {
-    text-decoration: none;
-    color: rgba(117, 117, 117, 1);
-    font-weight: var(--grosorfuenteb);
-    font-size: var(--tamañofuentea);
-    line-height: var(--interlineadoa);
-}
-/* pendiente la ruta del icono*/
-.linkHeader4::before {
-    content: '';
-    background-size: contain;
-    background-image: url(); 
-}
-   
-
-.linkHeader5 {
+.Headerdatescontact {
     text-decoration: none;
     color: rgba(117, 117, 117, 1);
     font-weight: var(--grosorfuenteb);
@@ -123,8 +106,13 @@ nav {
     line-height: var(--interlineadoa);
 }
 
-a:hover{
-    color:var(--colortextoresaltado);
+.Headerdatescontact:hover {
+    color: var(--colortextoresaltado);
+}
+
+/* No supe como definir la ruta relativa por lo que el icono quedo dentro del htlm como un elemento svg*/
+.Headerdatescontact::before {
+    content: '';
 }
 
 .servicerequest{
@@ -147,17 +135,67 @@ a:hover{
     align-items: center;
 }
 
-.buttonService {
+.cta {
+    display: inline-block;
     width: 200px;
-    height: 50px;
+    height: 25px;
+    padding: 7px 0;
+    text-align: center;
+    text-decoration: none;
     background: var(--colortextoresaltado);
     color: var(--negativecolor);
     font-weight: 700;
-    font-size: var(--tamañofuenteb);
+    font-size: 16px;
     line-height: var(--interlineadoc);
     border: none;
     border-radius: 4px;
     cursor: pointer; 
+}
+
+/*ventana modal*/
+
+.modal-container {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.modal {
+    width: 40%;
+    height: 50%;
+    background: white;
+    position: relative;
+    transition: transform 0.8s;
+    transform: translateY(0%);
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.modal-close {
+    *transform: translateY(-200%);
+}
+
+.close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: red;
+    color: var(--colorbotonesfiltro);
+    line-height: 25px;
+    cursor: pointer;
+    border-radius: 50px;
 }
 
 h1 {
@@ -383,6 +421,8 @@ h4 {
     justify-content: space-between;
 }
 
+/* los iconos no resaltan */
+
 .empresasBox {
     width: 170px;
     height: 92px;
@@ -395,8 +435,8 @@ h4 {
 }
 
 .empresasBox:hover {
-    color: var(--colortextoresaltado);
-    border: 1px solid var(--colortextoresaltado);
+    background: var(--colortextoresaltado);
+ 
 }
 
 .linkFooter {
@@ -405,6 +445,9 @@ h4 {
 
     font-size: var(--tamañofuentea);
     cursor: pointer;
+}
+.linkFooter:hover{
+    color: var(--colortextoresaltado);
 }
 
 body {
@@ -630,7 +673,7 @@ button:hover{
     transition: transform 250ms ease;
   }
   
-  .overlay > p {
+.overlay > p {
     color: #fff;
     padding: 30px;
     font-size: 18px;
@@ -685,7 +728,7 @@ button:hover{
     display: flex;
     justify-content: space-between;
 }
-
+/* aqui lo que intento es con la funcion hover que resalte el borde del div y el icono al mismo tiempo cambiabdo de color a azul pero el fondo permanezca igual pero no consigo el efecto*/
 .redes-footer {
     width: 44px;
     height: 44px;
@@ -719,10 +762,15 @@ button:hover{
     height: 60px;
     background-position: -48px 0;
   }
+
+  /* .icon-Logo-4 no logro cambiar el color con la propiedad fill y stroke*/
+
   .icon-Logo-4 {
     width: 106px;
     height: 60px;
     background-position: -144px 0;
+    stroke: var(--colortextoparrafos);
+    fill: var(--colortextoparrafos);
   }
   .icon-Logo-3 {
     width: 106px;
@@ -734,6 +782,7 @@ button:hover{
     height: 60px;
     background-position: -336px 0;
   }
+
   .icon-Logo-1 {
     width: 106px;
     height: 60px;
@@ -770,6 +819,7 @@ button:hover{
     height: 32px;
     background-position: -48px -48px;
   }
+  
   .icon-facebook {
     width: 20px;
     height: 20px;
@@ -822,4 +872,3 @@ button:hover{
     height: 20px;
     background-position: -144px -96px;
   }
-  

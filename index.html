@@ -18,18 +18,18 @@
         <div class="menu">
             <p class="logo">WebStudio</p>
             <nav>
-                <a class="linkHeader1" href="index.html">Estudio</a>
-                <a class="linkHeader2" href="portafolio.html">Portafolio</a>
-                <a class="linkHeader3" href="Contactos">Contactos</a>
+                <a class="linkHeader" href="index.html">Estudio</a>
+                <a class="linkHeader" href="portafolio.html">Portafolio</a>
+                <a class="linkHeader" href="Contactos">Contactos</a>
             </nav>
             <div class="datoscontacto">
                 <div class="mail">
                     <svg class="icon icon-sobre"><use xlink:href="imagenesicons/icons.svg#icon-sobre"></use></svg>
-                    <a class="linkHeader4" href="mailto:info@devstudio.com">info@devstudio.com</a>
+                    <a class="Headerdatescontact" href="mailto:info@devstudio.com">info@devstudio.com</a>
                 </div>
                 <div class="phone">
                     <svg class="icon icon-Vector"><use xlink:href="imagenesicons/icons.svg#icon-Vector"></use></svg>
-                    <a class="linkHeader5" href="tel:+525555296000">+52 55 5529 6000</a>
+                    <a class="Headerdatescontact" href="tel:+525555296000">+52 55 5529 6000</a>
                 </div>
             </div>
         </div>       
@@ -38,7 +38,9 @@
         <div class="servicerequest">
             <div class="degradado">
                 <h1>SOLUCIONES EFICACES PARA SU NEGOCIO</h1>
-                <button class="buttonService" type="button">Solicitar un servicio</button>
+                <div>
+                    <a href="#" class="cta">Solicitar un servicio</a>
+                </div>
             </div>
         </div>
         <div class="serviceadvantages">
@@ -211,6 +213,12 @@
             </div>
         </div>
     </main>
+    <!--ventana modal-->
+    <div class="modal-container">
+        <div class="modal modal-close">
+            <p class="close">X</p>
+        </div>
+    </div>
     <footer class="footerbox">
         <div class="footer-dates">
             <div class="footer">
@@ -241,6 +249,7 @@
             </div>
         </div>
     </footer>
+    <script src="js/modal.js"></script>
 </body>
     
 </html>
